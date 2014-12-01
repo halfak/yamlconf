@@ -8,9 +8,9 @@ default values in reasonable ways.  Nothing complicated.
 
 :Example:
 
-    >>> import yamlconfig
+    >>> import yamlconf
     >>>
-    >>> doc = yamlconfig.loads("""
+    >>> doc = yamlconf.loads("""
     ... test: demo_test
     ...
     ... tests:
@@ -29,4 +29,4 @@ default values in reasonable ways.  Nothing complicated.
 
 * load(*file-like*) : Returns a *dict* with defaults propagated
 * loads(*string*) : Returns a *dict* with defaults propagated
-* load_module(*class-path*) : Imports and returns 
+* load_module(*class-path*) : Imports and returns
