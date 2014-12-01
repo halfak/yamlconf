@@ -26,6 +26,7 @@ default values in reasonable ways.  Nothing complicated.
     6
 
 :Functions:
-    load(*file-like*) : Returns a *dict* with defaults propagated
-    loads(*string*) : Returns a *dict* with defaults propagated
-    load_module(*class-path*) : Imports and returns 
+
+* load(*file-like*) : Returns a *dict* with defaults propagated
+* loads(*string*) : Returns a *dict* with defaults propagated
+* load_module(*class-path*) : Imports and returns 

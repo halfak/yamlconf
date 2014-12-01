@@ -13,7 +13,7 @@ def requirements(fname):
 
 
 setup(
-    name="yamlconfig",
+    name="yamlconf",
     version=read('VERSION').strip(),
     author="Aaron Halfaker",
     author_email="ahalfaker@wikimedia.org",
@@ -22,7 +22,7 @@ setup(
                  "Nothing complicated."),
     license="MIT",
     url="https://github.com/halfak/Python-Yaml-Configuration",
-    packages=find_packages(),
+    py_modules=['yamlconf'],
     long_description=read('README.rst'),
     install_requires=['pyyaml'],
     classifiers=[
