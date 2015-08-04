@@ -1,6 +1,7 @@
 import copy
 import importlib
 import io
+import sys
 
 import yaml
 
@@ -38,12 +39,25 @@ def propagate_defaults(config_doc):
 
     return config_doc
 
+sys.path.insert(0, ".") # Necessary for working in other modules
 def import_module(path):
     """
     Import a class from a path.  E.g. import_class("difflib.SequenceMatcher")
     returns a reference to the SequenceMatcher class.
     """
-    return importlib.import_module(path)
+    try:
+        module = import_module(path)
+        return module
+    except ImportError:
+        parts = path.split(".")
+        module_path = ".".join(parts[:-1])
+        attribute_name = parts[-1]
+
+        module = import_module(module_path)
+
+        attribute = getattr(module, attribute_name)
+
+        return attribute
 
 
 def load(f):
