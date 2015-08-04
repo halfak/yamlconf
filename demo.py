@@ -1,6 +1,6 @@
-import yamlconfig
+import yamlconf
 
-doc = yamlconfig.loads("""
+doc = yamlconf.loads("""
 test: demo_test
 
 tests:
