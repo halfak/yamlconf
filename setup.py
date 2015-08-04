@@ -14,7 +14,7 @@ def requirements(fname):
 
 setup(
     name="yamlconf",
-    version=read('VERSION').strip(),
+    version="0.0.2",
     author="Aaron Halfaker",
     author_email="ahalfaker@wikimedia.org",
     description=("This library provides a means to read yaml configuration " +
