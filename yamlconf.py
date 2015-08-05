@@ -5,6 +5,8 @@ import sys
 
 import yaml
 
+__version__ = "0.0.4"
+
 
 def dict_merge(d1, d2):
     """
@@ -46,14 +48,14 @@ def import_module(path):
     returns a reference to the SequenceMatcher class.
     """
     try:
-        module = import_module(path)
+        module = importlib.import_module(path)
         return module
     except ImportError:
         parts = path.split(".")
         module_path = ".".join(parts[:-1])
         attribute_name = parts[-1]
 
-        module = import_module(module_path)
+        module = importlib.import_module(module_path)
 
         attribute = getattr(module, attribute_name)
 
