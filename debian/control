@@ -1,0 +1,12 @@
+Source: python3-yamlconf
+Maintainer: Aaron Halfakar <aaron.halfakar@gmail.com>
+Section: python
+Priority: optional
+Build-Depends: python3-setuptools, python3-all, debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: python3-yamlconf
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Description: This library provides a means to read yaml configuration files and propagate
+ default values in reasonable ways.  Nothing complicated.
