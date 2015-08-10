@@ -5,7 +5,7 @@ import sys
 
 import yaml
 
-__version__ = "0.0.4"
+__version__ = "0.0.5"
 
 
 def dict_merge(d1, d2):
