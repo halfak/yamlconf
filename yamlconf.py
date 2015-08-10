@@ -48,9 +48,6 @@ def import_module(path):
     returns a reference to the SequenceMatcher class.
     """
     try:
-        module = importlib.import_module(path)
-        return module
-    except ImportError:
         parts = path.split(".")
         module_path = ".".join(parts[:-1])
         attribute_name = parts[-1]
@@ -60,6 +57,8 @@ def import_module(path):
         attribute = getattr(module, attribute_name)
 
         return attribute
+    except AttributeError:
+        return importlib.import_module(path)
 
 
 def load(f):
