@@ -14,15 +14,15 @@ def requirements(fname):
 
 setup(
     name="yamlconf",
-    version="0.0.5", # Update in yamlconf/__init__.py too
+    version="0.1.0",  # Update in yamlconf/__init__.py too
     author="Aaron Halfaker",
     author_email="ahalfaker@wikimedia.org",
     description=("This library provides a means to read yaml configuration " +
                  "files and propagate default values in reasonable ways.  " +
                  "Nothing complicated."),
     license="MIT",
-    url="https://github.com/halfak/Python-Yaml-Configuration",
-    py_modules=['yamlconf'],
+    url="https://github.com/halfak/yamlconf",
+    packages=find_packages(),
     long_description=read('README.rst'),
     install_requires=['pyyaml'],
     classifiers=[

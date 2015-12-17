@@ -1,0 +1,7 @@
+hats:
+  red:
+    color: red
+    size: 10
+  bowler:
+    color: black
+    size: 25
