@@ -6,4 +6,4 @@ from .propagate_defaults import propagate_defaults
 
 __all__ = [import_module, import_path, load, loads, merge, propagate_defaults]
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
