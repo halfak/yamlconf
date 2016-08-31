@@ -1,4 +1,5 @@
 import importlib
+import sys
 
 
 def import_path(path):
@@ -17,7 +18,8 @@ def import_path(path):
     :Parameters:
         path : `str`
             A valid python path that crosses modules and/or attributes
-    """
+    """  # noqa
+    sys.path.insert(0, ".")
     parts = path.split(".")
     module = None
     module_i = 0
@@ -25,6 +27,8 @@ def import_path(path):
     # Import the module as deeply as possible
     try:
         for i in range(1, len(parts)+1):
+            if module is not None and hasattr(module, parts[i-1]):
+                break  # The next item in the path is an attribute
             module_path = ".".join(parts[0:i])
             module = importlib.import_module(module_path)
             module_i = i
