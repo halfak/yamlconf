@@ -22,24 +22,23 @@ def import_path(path):
     sys.path.insert(0, ".")
     parts = path.split(".")
     module = None
-    module_i = 0
 
-    # Import the module as deeply as possible
-    try:
-        for i in range(1, len(parts)+1):
-            if module is not None and hasattr(module, parts[i-1]):
-                break  # The next item in the path is an attribute
-            module_path = ".".join(parts[0:i])
-            module = importlib.import_module(module_path)
-            module_i = i
-    except ImportError:
-        if module is None:
-            raise
-        else:
-            pass
+    # Import the module as deeply as possible.  Prioritize an attribute chain
+    # over a module chain
+    for i in range(1, len(parts)+1):
+        if module is not None and hasattr(module, parts[i-1]):
+            try:
+                return _import_attributes(module, parts[i-1:])
+            except AttributeError:
+                pass
+        module_path = ".".join(parts[0:i])
+        module = importlib.import_module(module_path)
 
-    module_or_attribute = module
-    for attribute_name in parts[module_i:]:
-        module_or_attribute = getattr(module_or_attribute, attribute_name)
+    return module
 
-    return module_or_attribute
+
+def _import_attributes(module, attributes):
+    for attribute in attributes:
+        module = getattr(module, attribute)
+
+    return module
