@@ -14,7 +14,7 @@ def requirements(fname):
 
 setup(
     name="yamlconf",
-    version="0.2.1",  # Update in yamlconf/__init__.py too
+    version="0.2.2",  # Update in yamlconf/__init__.py too
     author="Aaron Halfaker",
     author_email="ahalfaker@wikimedia.org",
     description=("This library provides a means to read yaml configuration " +
