@@ -1,8 +1,9 @@
 import os
 
-from nose.tools import eq_
+from nose.tools import eq_, raises
 
 from ..load import load, loads
+from .. import errors
 
 EXPECTED = {
     'hats': {
@@ -29,3 +30,8 @@ def test_load():
     eq_(loads(open(os.path.join(PWD, 'config1.yaml')).read(),
               open(os.path.join(PWD, 'config2.yaml')).read()),
         EXPECTED)
+
+
+@raises(errors.ConfigError)
+def test_load():
+    load(*[])

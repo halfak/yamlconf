@@ -2,6 +2,7 @@ import io
 
 import yaml
 
+from . import errors
 from .merge import merge
 from .propagate_defaults import propagate_defaults
 
@@ -17,6 +18,8 @@ def load(*files):
     :Returns:
         `dict` : the configuration document
     """
+    if len(files) == 0:
+        raise errors.ConfigError("No config files provided.")
     doc = merge(*(yaml.load(f) for f in files))
     return propagate_defaults(doc)
 
