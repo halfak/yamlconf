@@ -24,7 +24,7 @@ setup(
     url="https://github.com/halfak/yamlconf",
     packages=find_packages(),
     long_description=read('README.rst'),
-    install_requires=['pyyaml'],
+    install_requires=list(requirements("requirements.txt")),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",

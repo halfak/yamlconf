@@ -20,7 +20,7 @@ def load(*files):
     """
     if len(files) == 0:
         raise errors.ConfigError("No config files provided.")
-    doc = merge(*(yaml.load(f) for f in files))
+    doc = merge(*(yaml.safe_load(f) for f in files))
     return propagate_defaults(doc)
 
 
