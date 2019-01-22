@@ -1,5 +1,5 @@
 __name__ = "yamlconf"
-__version__ = "0.2.3"
+__version__ = "0.2.4"
 __author__ = "Aaron Halfaker"
 __author_email__ = "aaron.halfaker@gmail.com"
 __description__ = "Yaml-based configuration file reader."
