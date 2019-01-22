@@ -2,6 +2,9 @@ import os
 
 from setuptools import find_packages, setup
 
+about_path = os.path.join(os.path.dirname(__file__), "yamlconf/about.py")
+exec(compile(open(about_path).read(), about_path, "exec"))
+
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
@@ -13,15 +16,13 @@ def requirements(fname):
 
 
 setup(
-    name="yamlconf",
-    version="0.2.3",  # Update in yamlconf/__init__.py too
-    author="Aaron Halfaker",
-    author_email="ahalfaker@wikimedia.org",
-    description=("This library provides a means to read yaml configuration " +
-                 "files and propagate default values in reasonable ways.  " +
-                 "Nothing complicated."),
-    license="MIT",
-    url="https://github.com/halfak/yamlconf",
+    name=__name__,  # noqa
+    version=__version__,  # noqa
+    author=__author__,  # noqa
+    author_email=__author_email__,  # noqa
+    description=__description__,  # noqa
+    url=__url__,  # noqa
+    license=__license__,  # noqa
     packages=find_packages(),
     long_description=read('README.rst'),
     install_requires=list(requirements("requirements.txt")),
